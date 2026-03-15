@@ -1,6 +1,6 @@
 import { createInterface } from 'node:readline/promises';
 import { stdin, stdout } from 'node:process';
-export const ReplHandler = (state, navigation) => {
+export const ReplHandler = (state, navigation, commands) => {
   const rl = createInterface({
     input: stdin,
     output: stdout,
@@ -15,8 +15,10 @@ export const ReplHandler = (state, navigation) => {
       }
       if (navigation[command]) {
         await navigation[command](state, args);
+      } else if (commands[command]) {
+        await commands[command](state, args);
       } else {
-        throw 'Invalid Input'
+        throw 'Invalid Input';
       }
       console.log(`You are currently in ${state.currentDir}`);
     } catch (error) {
