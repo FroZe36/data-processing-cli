@@ -11,16 +11,18 @@ export const ReplHandler = (state, navigation) => {
     const [command, ...args] = line.trim().split(' ');
     try {
       if (command === '.exit') {
-        rl.close()
+        rl.close();
       }
       if (navigation[command]) {
         await navigation[command](state, args);
+      } else {
+        throw 'Invalid Input'
       }
+      console.log(`You are currently in ${state.currentDir}`);
     } catch (error) {
       console.log(error);
     }
     rl.prompt();
-    console.log(`You are currently in ${state.currentDir}`);
   });
   rl.on('close', () => {
     console.log('Thank you for using Data Processing CLI!');

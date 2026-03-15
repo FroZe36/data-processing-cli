@@ -9,7 +9,7 @@ const navigation = {
   },
   cd: async (state, args) => {
     if (!args[0]) {
-      throw 'Operation failed';
+      throw 'Invalid input';
     }
     const newPath = pathResolver(state.currentDir, args[0]);
     try {
