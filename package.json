@@ -1,0 +1,23 @@
+{
+  "name": "data-processing-cli",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": ">=24.10.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FroZe36/data-processing-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FroZe36/data-processing-cli/issues"
+  },
+  "homepage": "https://github.com/FroZe36/data-processing-cli#readme"
+}
