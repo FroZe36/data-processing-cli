@@ -10,6 +10,9 @@ export const ReplHandler = (state, navigation) => {
   rl.on('line', async line => {
     const [command, ...args] = line.trim().split(' ');
     try {
+      if (command === '.exit') {
+        rl.close()
+      }
       if (navigation[command]) {
         await navigation[command](state, args);
       }
