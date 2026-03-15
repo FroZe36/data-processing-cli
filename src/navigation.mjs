@@ -8,10 +8,10 @@ const navigation = {
     state.currentDir = parentDir === state.currentDir ? state.currentDir : parentDir;
   },
   cd: async (state, args) => {
-    if (!args[0]) {
+    if (!args.length) {
       throw 'Invalid input';
     }
-    const newPath = pathResolver(state.currentDir, args[0]);
+    const newPath = pathResolver(state.currentDir, ...args);
     try {
       const stats = await stat(newPath);
 
